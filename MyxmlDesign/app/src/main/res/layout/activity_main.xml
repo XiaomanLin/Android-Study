@@ -11,44 +11,53 @@
 
 
     <TextView
-        android:text="您选择的答案是："
+        android:text="The number I want is __."
         android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:id="@+id/monitor"
         android:textSize="24sp"
         android:layout_marginLeft="20dp" />
 
-    <RadioButton
-        android:text="1"
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/r1"
-        android:textSize="16sp"
-        android:layout_marginLeft="20dp" />
+        android:layout_height="118dp" >
 
-    <RadioButton
-        android:text="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/r2"
-        android:textSize="16sp"
-        android:layout_marginLeft="20dp" />
+        <RadioButton
+            android:text="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/r1"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
 
-    <RadioButton
-        android:text="3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/r3"
-        android:textSize="16sp"
-        android:layout_marginLeft="20dp" />
+        <RadioButton
+            android:text="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/r2"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
 
-    <RadioButton
-        android:text="4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/r4"
-        android:textSize="16sp"
-        android:layout_marginLeft="20dp" />
+        <RadioButton
+            android:text="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/r3"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/r4"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
+    </RadioGroup>
 
     <Button
         android:text="@string/sure"
