@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        setContentView(android.R.layout.activity_list_item);
+        setContentView(R.layout.activity_main);
 
         showdate=(TextView) this.findViewById(R.id.showtime);
         setdate=(Button) this.findViewById(R.id.setdate);
@@ -96,5 +96,5 @@ public class MainActivity extends AppCompatActivity {
             showdate.setText("当前日期："+year+"-"+(month+1)+"-"+day);
         }
     };
-    }
+}
 
