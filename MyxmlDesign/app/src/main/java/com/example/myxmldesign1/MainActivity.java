@@ -17,10 +17,11 @@ public class MainActivity extends AppCompatActivity {
     RadioButton currentRadioButton = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // 获得单选按钮
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         r1 = (RadioButton) findViewById(R.id.r1);
         r2 = (RadioButton) findViewById(R.id.r2);
         r3 = (RadioButton) findViewById(R.id.r3);
