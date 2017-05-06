@@ -34,23 +34,25 @@ public class GameView extends LinearLayout{
         initGameView();
     }
 
+    //初始化界面
     private void initGameView(){
         setOrientation(LinearLayout.VERTICAL);
-        setBackgroundColor(Color.BLUE);
+        setBackgroundColor(Color.WHITE);
 
         setOnTouchListener(new View.OnTouchListener(){
 
             private float startX,startY,offsetX,offsetY;
 
+            //判断手势滑动
             @Override
             public boolean onTouch(View v, MotionEvent event){
 
                 switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_DOWN: //按下
                         startX = event.getX();
                         startY = event.getY();
                         break;
-                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_UP:  //离开
                         offsetX = event.getX()-startX;
                         offsetY = event.getY()-startY;
 
@@ -59,6 +61,12 @@ public class GameView extends LinearLayout{
                                 swipeLeft();
                             }else if (offsetX > 5){
                                 swipeRight();
+                            }
+                        }else {
+                            if (offsetY < -5){
+                                swipeUp();
+                            }else if (offsetY > 5){
+                                swipeDown();
                             }
                         }
                         break;
@@ -109,7 +117,6 @@ public class GameView extends LinearLayout{
 
         emptyPoints.clear();
 
-        //calculate how many empty points
         for (int y = 0; y < LINES; y++) {
             for (int x = 0; x < LINES; x++) {
                 if (cardsMap[x][y].getNum()<=0) {
@@ -281,11 +288,11 @@ public class GameView extends LinearLayout{
         ALL:
         for (int y = 0; y < LINES; y++) {
             for (int x = 0; x < LINES; x++) {
-                if (cardsMap[x][y].getNum()==0||
-                        (x>0&&cardsMap[x][y].equals(cardsMap[x-1][y]))||
-                        (x<LINES-1&&cardsMap[x][y].equals(cardsMap[x+1][y]))||
-                        (y>0&&cardsMap[x][y].equals(cardsMap[x][y-1]))||
-                        (y<LINES-1&&cardsMap[x][y].equals(cardsMap[x][y+1]))) {
+                if (cardsMap[x][y].getNum() == 0  ||
+                        (x > 0 && cardsMap[x][y].equals(cardsMap[x-1][y]))||
+                        (x < LINES - 1 && cardsMap[x][y].equals(cardsMap[x+1][y]))||
+                        (y > 0 && cardsMap[x][y].equals(cardsMap[x][y-1]))||
+                        (y < LINES - 1 && cardsMap[x][y].equals(cardsMap[x][y+1]))) {
 
                     complete = false;
                     break ALL;
@@ -307,6 +314,5 @@ public class GameView extends LinearLayout{
 
     public void setScore(MainActivity.Score score) {
         this.score = score;
-
     }
 }

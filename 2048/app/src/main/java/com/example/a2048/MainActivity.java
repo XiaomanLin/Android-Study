@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         buttoNewGame = (Button) findViewById(R.id.btnNewGame);
         scoreTextView = (TextView) findViewById(R.id.score);
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         score = new Score();
         gameView.setScore(score);
 
-        buttoNewGame.setOnClickListener(new View.OnClickListener() {
+        buttoNewGame.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {

@@ -27,7 +27,7 @@ public class Card extends FrameLayout{
         View background = new View(getContext());
         lp = new LayoutParams(-1, -1);
         lp.setMargins(10, 10, 0, 0);
-        background.setBackgroundColor(Color.BLUE);
+        background.setBackgroundColor(Color.WHITE);
         addView(background, lp);
 
         label = new TextView(getContext());
@@ -61,43 +61,43 @@ public class Card extends FrameLayout{
 
         switch (num) {
             case 0:
-                label.setBackgroundColor(0x00000000);
+                label.setBackgroundColor(Color.parseColor("#d1d1d1"));
                 break;
             case 2:
-                label.setBackgroundColor(0xffeee4da);
+                label.setBackgroundColor(Color.parseColor("#f6caca"));
                 break;
             case 4:
-                label.setBackgroundColor(0xffede0c8);
+                label.setBackgroundColor(Color.parseColor("#fde1b6"));
                 break;
             case 8:
-                label.setBackgroundColor(0xfff2b179);
+                label.setBackgroundColor(Color.parseColor("#ffc076"));
                 break;
             case 16:
-                label.setBackgroundColor(0xfff59563);
+                label.setBackgroundColor(Color.parseColor("#ffa275"));
                 break;
             case 32:
-                label.setBackgroundColor(0xfff67c5f);
+                label.setBackgroundColor(Color.parseColor("#fc776d"));
                 break;
             case 64:
-                label.setBackgroundColor(0xfff65e3b);
+                label.setBackgroundColor(Color.parseColor("#fb4b4b"));
                 break;
             case 128:
-                label.setBackgroundColor(0xffedcf72);
+                label.setBackgroundColor(Color.parseColor("#c4d1fb"));
                 break;
             case 256:
-                label.setBackgroundColor(0xffedcc61);
+                label.setBackgroundColor(Color.parseColor("#8181e2"));
                 break;
             case 512:
-                label.setBackgroundColor(0xffedc850);
+                label.setBackgroundColor(Color.parseColor("#5555df"));
                 break;
             case 1024:
-                label.setBackgroundColor(0xffedc53f);
+                label.setBackgroundColor(Color.parseColor("#a5f8ab"));
                 break;
             case 2048:
-                label.setBackgroundColor(0xffedc22e);
+                label.setBackgroundColor(Color.parseColor("#4ef75a"));
                 break;
             default:
-                label.setBackgroundColor(0xff3c3a32);
+                label.setBackgroundColor(Color.parseColor("#d1d1d1"));
                 break;
         }
     }
