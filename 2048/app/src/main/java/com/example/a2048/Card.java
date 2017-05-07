@@ -61,43 +61,43 @@ public class Card extends FrameLayout{
 
         switch (num) {
             case 0:
-                label.setBackgroundColor(Color.parseColor("#d1d1d1"));
+                label.setBackgroundColor(Color.parseColor("#D1D1D1"));
                 break;
             case 2:
-                label.setBackgroundColor(Color.parseColor("#f6caca"));
+                label.setBackgroundColor(Color.parseColor("#F6CACA"));
                 break;
             case 4:
-                label.setBackgroundColor(Color.parseColor("#fde1b6"));
+                label.setBackgroundColor(Color.parseColor("#FDE1B6"));
                 break;
             case 8:
-                label.setBackgroundColor(Color.parseColor("#ffc076"));
+                label.setBackgroundColor(Color.parseColor("#FFC076"));
                 break;
             case 16:
-                label.setBackgroundColor(Color.parseColor("#ffa275"));
+                label.setBackgroundColor(Color.parseColor("#FFA275"));
                 break;
             case 32:
-                label.setBackgroundColor(Color.parseColor("#fc776d"));
+                label.setBackgroundColor(Color.parseColor("#FC776D"));
                 break;
             case 64:
-                label.setBackgroundColor(Color.parseColor("#fb4b4b"));
+                label.setBackgroundColor(Color.parseColor("#FB4B4B"));
                 break;
             case 128:
-                label.setBackgroundColor(Color.parseColor("#c4d1fb"));
+                label.setBackgroundColor(Color.parseColor("#C4D1FB"));
                 break;
             case 256:
-                label.setBackgroundColor(Color.parseColor("#8181e2"));
+                label.setBackgroundColor(Color.parseColor("#8181E2"));
                 break;
             case 512:
-                label.setBackgroundColor(Color.parseColor("#5555df"));
+                label.setBackgroundColor(Color.parseColor("#5555DF"));
                 break;
             case 1024:
-                label.setBackgroundColor(Color.parseColor("#a5f8ab"));
+                label.setBackgroundColor(Color.parseColor("#A5F8AB"));
                 break;
             case 2048:
-                label.setBackgroundColor(Color.parseColor("#4ef75a"));
+                label.setBackgroundColor(Color.parseColor("#4EF75A"));
                 break;
             default:
-                label.setBackgroundColor(Color.parseColor("#d1d1d1"));
+                label.setBackgroundColor(Color.parseColor("#D1D1D1"));
                 break;
         }
     }

@@ -36,7 +36,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/score"
                 android:gravity="center"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#FF0000"
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -59,13 +61,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bestScore"
                 android:gravity="center"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#FF0000"
+                android:text="0"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:text="重新开始"
+        android:text="开始游戏"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnNewGame"
