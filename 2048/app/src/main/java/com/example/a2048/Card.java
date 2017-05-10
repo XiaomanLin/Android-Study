@@ -114,8 +114,8 @@ public class Card extends FrameLayout{
 
     //设置动画效果
     public void addScaleAnimation(){
-        //前四个参数表示从原来大小的100%缩小到10%，后四个参数是为确定“中心点”
-        ScaleAnimation sa = new ScaleAnimation(1, 0.1f, 1, 0.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        //前四个参数表示从原来大小的10%增大到100%，后四个参数是为确定“中心点”
+        ScaleAnimation sa = new ScaleAnimation(0.1f, 1, 0.1f, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         //设置动画执行的时间（单位：毫秒）
         sa.setDuration(1000);
         setAnimation(null);
