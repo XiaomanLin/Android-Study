@@ -24,7 +24,7 @@
             android:background="@color/colorPink">
 
             <TextView
-                android:text="分数"
+                android:text="当前分数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"

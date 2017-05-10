@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 /**
  * Created by 小木木曼 on 2017/5/5.
+ * 初始化2048游戏中的方块
  */
 
 public class Card extends FrameLayout{
@@ -19,6 +20,7 @@ public class Card extends FrameLayout{
 
     private TextView label;
 
+    //设置游戏界面
     public Card(Context context) {
         super(context);
 
@@ -36,7 +38,7 @@ public class Card extends FrameLayout{
         label.setGravity(Gravity.CENTER);
 
         lp = new LayoutParams(-1, -1);
-        lp.setMargins(10, 10, 0, 0);
+        lp.setMargins(10, 10, 0, 0); //设置card的间距
         addView(label, lp);
 
         setNum(0);
@@ -55,7 +57,7 @@ public class Card extends FrameLayout{
         if (num<=0) {
             label.setText("");
         }else{
-            label.setText(String.valueOf(num));
+            label.setText(String.valueOf(num));//将num转换成字符串
 
         }
 
@@ -79,7 +81,7 @@ public class Card extends FrameLayout{
                 label.setBackgroundColor(Color.parseColor("#FC776D"));
                 break;
             case 64:
-                label.setBackgroundColor(Color.parseColor("#FB4B4B"));
+                label.setBackgroundColor(Color.parseColor("#FFD700"));
                 break;
             case 128:
                 label.setBackgroundColor(Color.parseColor("#C4D1FB"));
@@ -94,7 +96,7 @@ public class Card extends FrameLayout{
                 label.setBackgroundColor(Color.parseColor("#A5F8AB"));
                 break;
             case 2048:
-                label.setBackgroundColor(Color.parseColor("#4EF75A"));
+                label.setBackgroundColor(Color.parseColor("#FDFF00"));
                 break;
             default:
                 label.setBackgroundColor(Color.parseColor("#D1D1D1"));
@@ -110,8 +112,11 @@ public class Card extends FrameLayout{
         return label;
     }
 
+    //设置动画效果
     public void addScaleAnimation(){
-        ScaleAnimation sa = new ScaleAnimation(0.1f, 1, 0.1f, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        //前四个参数表示从原来大小的100%缩小到10%，后四个参数是为确定“中心点”
+        ScaleAnimation sa = new ScaleAnimation(1, 0.1f, 1, 0.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        //设置动画执行的时间（单位：毫秒）
         sa.setDuration(1000);
         setAnimation(null);
         getLabel().startAnimation(sa);

@@ -24,6 +24,7 @@ public class GameView extends LinearLayout{
     private List<Point> emptyPoints = new ArrayList<Point>();
     private MainActivity.Score score;
 
+
     public GameView(Context context) {
         super(context);
         initGameView();
@@ -43,7 +44,7 @@ public class GameView extends LinearLayout{
 
             private float startX,startY,offsetX,offsetY;
 
-            //判断手势滑动
+            //判断手势滑动方向
             @Override
             public boolean onTouch(View v, MotionEvent event){
 
@@ -76,6 +77,7 @@ public class GameView extends LinearLayout{
         });
     }
 
+    //一开始布局发生变化，调用以下函数
     @Override
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight){
         super.onSizeChanged(width, height, oldWidth, oldHeight);
@@ -85,6 +87,7 @@ public class GameView extends LinearLayout{
         addCards();
         startGame();
     }
+
     private void addCards(){
         Card c;
         LinearLayout line;
@@ -113,6 +116,7 @@ public class GameView extends LinearLayout{
         addRandomNum();
     }
 
+    //随机产生2、4
     private void addRandomNum(){
 
         emptyPoints.clear();
@@ -127,12 +131,14 @@ public class GameView extends LinearLayout{
 
         if (emptyPoints.size()>0) {
 
+            //随机移除emptyPoint中的一个单元
             Point p = emptyPoints.remove((int)(Math.random()*emptyPoints.size()));
             cardsMap[p.x][p.y].setNum(Math.random()>0.1?2:4);
             cardsMap[p.x][p.y].addScaleAnimation();
         }
     }
 
+    //向左滑动
     private void swipeLeft(){
 
         boolean merge = false;
@@ -170,6 +176,8 @@ public class GameView extends LinearLayout{
             checkComplete();
         }
     }
+
+    //向右滑动
     private void swipeRight(){
 
         boolean merge = false;
@@ -206,6 +214,8 @@ public class GameView extends LinearLayout{
             checkComplete();
         }
     }
+
+    //向上滑动
     private void swipeUp(){
 
         boolean merge = false;
@@ -244,6 +254,8 @@ public class GameView extends LinearLayout{
             checkComplete();
         }
     }
+
+    //向下滑动
     private void swipeDown(){
 
         boolean merge = false;
@@ -284,30 +296,61 @@ public class GameView extends LinearLayout{
     private void checkComplete(){
 
         boolean complete = true;
+        boolean num = false;
 
-        ALL:
+        //判断是否已经达到2048
+        A:
         for (int y = 0; y < LINES; y++) {
             for (int x = 0; x < LINES; x++) {
-                if (cardsMap[x][y].getNum() == 0  ||
-                        (x > 0 && cardsMap[x][y].equals(cardsMap[x-1][y]))||
-                        (x < LINES - 1 && cardsMap[x][y].equals(cardsMap[x+1][y]))||
-                        (y > 0 && cardsMap[x][y].equals(cardsMap[x][y-1]))||
-                        (y < LINES - 1 && cardsMap[x][y].equals(cardsMap[x][y+1]))) {
-
-                    complete = false;
-                    break ALL;
+                if (cardsMap[x][y].getNum() == 2048) {
+                    num = true;
+                    break A;
                 }
             }
         }
 
-        if (complete) {
-            new AlertDialog.Builder(getContext()).setTitle("Finished").setMessage("Game Over").setPositiveButton("start again?", new DialogInterface.OnClickListener() {
+        //判断还有没有空位或者还能不能相加
+        ALL:
+        if (num == false){
+            for (int y = 0; y < LINES; y++) {
+                for (int x = 0; x < LINES; x++) {
+                    if (cardsMap[x][y].getNum() == 0 ||
+                            (x > 0 && cardsMap[x][y].equals(cardsMap[x - 1][y])) ||
+                            (x < LINES - 1 && cardsMap[x][y].equals(cardsMap[x + 1][y])) ||
+                            (y > 0 && cardsMap[x][y].equals(cardsMap[x][y - 1])) ||
+                            (y < LINES - 1 && cardsMap[x][y].equals(cardsMap[x][y + 1]))) {
 
+                        complete = false;
+                        break ALL;
+                    }
+                }
+            }
+        }
+
+        if (complete && num) {
+            new AlertDialog.Builder(
+                    getContext()).setTitle("游戏结束").setMessage("你赢了！！！").
+                    setPositiveButton("再玩一次？", new DialogInterface.OnClickListener()
+            {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    startGame();
+                    //startGame();
+                    MainActivity.getMainActivity().startNewGame();
                 }
-            }).show();
+            }
+                    ).show();
+        }else if (complete && !num){
+            new AlertDialog.Builder(
+                    getContext()).setTitle("游戏结束").setMessage("你输了！！！").
+                    setPositiveButton("再玩一次？", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //startGame();
+                                    MainActivity.getMainActivity().startNewGame();
+                                }
+                            }
+                    ).show();
         }
 
     }
